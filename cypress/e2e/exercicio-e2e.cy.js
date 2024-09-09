@@ -37,7 +37,7 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
         cy.get('.checkout-button').click() // E finalizou a compra
         objects.checkout(nome, sobrenome, empresa, endereco, cidade, cep, phone, email) // Colocou todos seus dados, preenchidos corretamente
         cy.wait(2000) // Aguardando o tempo da página processar o pedido
-        cy.get('.page-title').should('exist') // Pedido concluído
+        cy.get('.woocommerce-notice').should('contain', 'Obrigado. Seu pedido foi recebido.') // Pedido concluído
     });
 
     it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta, (com cadastro))', () => {
@@ -48,7 +48,7 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
         objects.buscarProd('Abominable Hoodie', 'M', 'Red', 1) // Pesquisou outro produto e já, configurou e adicionou ao carrinho
         objects.buscarProd('Aero Daily Fitness Tee', 'L', 'Black', 1) // Pesquisou outro produto e já, configurou e adicionou ao carrinho
         objects.finally() // Verificando carrinho e finalizando pedido
-        cy.get('.page-title').should('exist') // Pedido concluído
+        cy.get('.woocommerce-notice').should('contain', 'Obrigado. Seu pedido foi recebido.') // Pedido concluído
      });
 
      it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta, (com login, mas sem dados de endereço)', () => {
@@ -61,7 +61,7 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
         objects.finally2()
         objects.checkout2(nome, sobrenome, empresa, endereco, cidade, cep, phone) // Colocou todos seus dados, preenchidos corretamente
         cy.wait(2000) // Aguardando o tempo da página processar o pedido
-        cy.get('.page-title').should('exist') // Pedido concluído
+        cy.get('.woocommerce-notice').should('contain', 'Obrigado. Seu pedido foi recebido.') // Pedido concluído
 
 
      })
