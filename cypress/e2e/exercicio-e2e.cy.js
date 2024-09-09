@@ -36,7 +36,7 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
         cy.get('.woocommerce-message > .button').click() // Clicou para verificar seu carrinho
         cy.get('.checkout-button').click() // E finalizou a compra
         objects.checkout(nome, sobrenome, empresa, endereco, cidade, cep, phone, email) // Colocou todos seus dados, preenchidos corretamente
-        cy.wait(2000) // Aguardando o tempo da página processar o pedido
+        cy.wait(4000) // Aguardando o tempo da página processar o pedido
         cy.get('.woocommerce-notice').should('contain', 'Obrigado. Seu pedido foi recebido.') // Pedido concluído
     });
 
@@ -60,7 +60,7 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
         objects.buscarProd('Aero Daily Fitness Tee', 'L', 'Black', 1) // Pesquisou outro produto e já, configurou e adicionou ao carrinho
         objects.finally2()
         objects.checkout2(nome, sobrenome, empresa, endereco, cidade, cep, phone) // Colocou todos seus dados, preenchidos corretamente
-        cy.wait(2000) // Aguardando o tempo da página processar o pedido
+        cy.wait(4000) // Aguardando o tempo da página processar o pedido
         cy.get('.woocommerce-notice').should('contain', 'Obrigado. Seu pedido foi recebido.') // Pedido concluído
 
 
