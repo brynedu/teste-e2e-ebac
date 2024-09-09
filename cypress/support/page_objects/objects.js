@@ -50,7 +50,7 @@ class objects {
             cy.get('.checkout-button').click() // E finalizou a compra
             cy.get('#terms').click()
             cy.get('#place_order').click()
-            cy.wait(6000) // Aguardando o tempo da página processar o pedido
+            cy.wait(4000) // Aguardando o tempo da página processar o pedido
             
     }
         finally2(){
